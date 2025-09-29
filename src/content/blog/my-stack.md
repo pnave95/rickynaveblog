@@ -1,6 +1,6 @@
 ---
-title: 'Welcome to My Blog'
-description: 'This is my first blog post on my new Astro blog with Giscus comments'
+title: 'My Starter Stack'
+description: 'This is my default stack for building new web apps.'
 pubDate: 2025-09-29
 ---
 
