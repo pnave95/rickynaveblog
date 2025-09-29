@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+).slice(0, 3);
+---
+
+<BaseLayout title="Home - My Blog">
+  <section>
+    <h2>Welcome to My Blog</h2>
+    <p>This is a simple, fast static blog built with Astro. Posts support comments via Giscus (GitHub Discussions).</p>
+  </section>
+
+  <section style="margin-top: 3rem;">
+    <h2>Recent Posts</h2>
+    <ul style="list-style: none; padding: 0;">
+      {posts.map((post) => (
+        <li style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e5e7eb;">
+          <h3 style="margin-top: 0; margin-bottom: 0.5rem;">
+            <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+          </h3>
+          <p style="color: #6b7280; font-size: 0.875rem; margin-bottom: 0.5rem;">
+            {new Date(post.data.pubDate).toLocaleDateString('en-us', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </p>
+          {post.data.description && (
+            <p style="margin-bottom: 0.5rem;">{post.data.description}</p>
+          )}
+          <a href={`/blog/${post.slug}/`}>Read more →</a>
+        </li>
+      ))}
+    </ul>
+    <a href="/blog">View all posts →</a>
+  </section>
+</BaseLayout>
