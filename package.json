@@ -15,6 +15,7 @@
   "dependencies": {
     "@astrojs/mdx": "^4.3.6",
     "@astrojs/rss": "^4.0.12",
+    "@octokit/rest": "^22.0.0",
     "astro": "^5.14.1"
   }
 }
