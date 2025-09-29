@@ -14,13 +14,12 @@ This is my first blog post on my new Astro-powered blog. This site is:
 
 ## Getting Started with Giscus
 
-Comments are ready to use! You just need to configure them with your GitHub repository details.
+To enable comments on your blog posts, you'll need to:
 
-See **GISCUS_SETUP.md** in the root directory for step-by-step instructions on:
-1. Enabling GitHub Discussions on your repository
-2. Installing the Giscus app
-3. Getting your configuration values
-4. Adding them to your blog
+1. Create a GitHub repository for your blog
+2. Enable GitHub Discussions in your repository settings
+3. Visit [giscus.app](https://giscus.app) to configure your settings
+4. Update the Giscus component in `src/layouts/BlogPost.astro` with your repository details
 
 ## What's Next?
 
